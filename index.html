@@ -13,81 +13,109 @@
 
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: linear-gradient(145deg, #e0f2f1 0%, #ffffff 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
+      /* Imagem de fundo (substitua pela URL desejada se quiser) */
+      background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    /* Camada azul escura translúcida para melhorar a leitura e manter o tom azul */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(30, 64, 175, 0.75) 0%, rgba(37, 99, 235, 0.65) 100%);
+      backdrop-filter: blur(2px);
+      z-index: 0;
     }
 
     .welcome-screen {
+      position: relative;
+      z-index: 1;
       width: 100%;
-      max-width: 400px;
-      background: rgba(255,255,255,0.85);
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(20px);
-      border-radius: 2.5rem;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      border-radius: 2.8rem;
+      padding: 2.8rem 2rem;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2);
       text-align: center;
-      animation: fadeSlideUp 0.6s ease-out;
+      animation: fadeSlideUp 0.7s ease-out;
+      border: 1px solid rgba(255, 255, 255, 0.4);
     }
 
     .logo-icon {
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(135deg, #0d9488, #0f766e);
-      border-radius: 28px;
-      margin: 0 auto 1.5rem;
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(145deg, #1e3a8a, #1d4ed8);
+      border-radius: 30px;
+      margin: 0 auto 1.8rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 10px 20px rgba(13,148,136,0.3);
+      box-shadow: 0 12px 25px rgba(29, 78, 216, 0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .logo-icon:hover {
+      transform: scale(1.03);
     }
 
     .logo-icon svg {
-      width: 52px;
-      height: 52px;
+      width: 58px;
+      height: 58px;
       fill: white;
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 700;
       color: #0f172a;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       letter-spacing: -0.5px;
     }
 
     .tagline {
-      font-size: 1.1rem;
-      color: #334155;
+      font-size: 1.15rem;
+      color: #1e293b;
       margin-bottom: 2.2rem;
-      line-height: 1.5;
+      line-height: 1.6;
       font-weight: 400;
     }
 
     .highlight {
-      color: #0d9488;
-      font-weight: 600;
+      color: #1d4ed8;
+      font-weight: 700;
     }
 
     .features {
       text-align: left;
-      margin: 0 auto 2.2rem;
-      background: #f0fdfa;
-      border-radius: 1.5rem;
-      padding: 1.2rem 1.5rem;
-      font-size: 0.95rem;
-      color: #115e59;
+      margin: 0 auto 2.5rem;
+      background: rgba(219, 234, 254, 0.8);
+      backdrop-filter: blur(5px);
+      border-radius: 1.8rem;
+      padding: 1.2rem 1.6rem;
+      font-size: 0.98rem;
+      color: #1e3a8a;
       display: inline-block;
+      border: 1px solid rgba(59, 130, 246, 0.2);
     }
 
     .features p {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.7rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
 
     .features p:last-child {
@@ -95,52 +123,60 @@
     }
 
     .check-icon {
-      color: #0d9488;
+      color: #2563eb;
       font-weight: bold;
+      font-size: 1.2rem;
     }
 
+    /* Botão central que leva para 10.html */
     .btn-start {
-      background: #0f766e;
+      display: inline-block;
+      background: #1e40af;
       color: white;
-      border: none;
-      padding: 1rem 2.5rem;
-      font-size: 1.2rem;
+      text-decoration: none;
+      padding: 1.1rem 2.5rem;
+      font-size: 1.25rem;
       font-weight: 600;
       border-radius: 3rem;
-      cursor: pointer;
       width: 100%;
       transition: all 0.25s ease;
-      box-shadow: 0 8px 18px rgba(15,118,110,0.3);
-      letter-spacing: 0.3px;
-      margin-top: 0.8rem;
+      box-shadow: 0 10px 25px rgba(30, 64, 175, 0.45);
+      letter-spacing: 0.5px;
+      margin-top: 0.6rem;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-start:hover {
-      background: #0d9488;
-      transform: translateY(-2px);
-      box-shadow: 0 14px 22px rgba(15,118,110,0.4);
+      background: #2563eb;
+      transform: translateY(-3px);
+      box-shadow: 0 18px 30px rgba(37, 99, 235, 0.5);
     }
 
     .btn-start:active {
       transform: translateY(0);
-      box-shadow: 0 6px 12px rgba(15,118,110,0.25);
+      box-shadow: 0 8px 18px rgba(30, 64, 175, 0.4);
     }
 
     .btn-start:focus-visible {
-      outline: 3px solid #5eead4;
+      outline: 3px solid #93c5fd;
       outline-offset: 3px;
     }
 
     .accessibility-note {
-      font-size: 0.7rem;
-      color: #64748b;
-      margin-top: 1.2rem;
+      font-size: 0.75rem;
+      color: #475569;
+      margin-top: 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
     }
 
     @keyframes fadeSlideUp {
       0% {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(30px);
       }
       100% {
         opacity: 1;
@@ -148,20 +184,19 @@
       }
     }
 
-    /* Responsivo para telas muito pequenas */
     @media (max-width: 380px) {
       .welcome-screen {
-        padding: 2rem 1.5rem;
+        padding: 2.2rem 1.6rem;
       }
       h1 {
-        font-size: 1.9rem;
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
   <div class="welcome-screen">
-    <!-- Ícone do Radar Saúde -->
+    <!-- Ícone azul -->
     <div class="logo-icon" aria-hidden="true">
       <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
@@ -174,31 +209,20 @@
       <span class="highlight">evite filas em emergências.</span>
     </p>
 
-    <!-- Pequeno resumo dos diferenciais -->
     <div class="features">
       <p><span class="check-icon">✓</span> Localização em tempo real</p>
       <p><span class="check-icon">✓</span> Tempo de espera estimado</p>
       <p><span class="check-icon">✓</span> Orientação para emergências</p>
     </div>
 
-    <!-- Botão central que leva para o início do app -->
-    <button class="btn-start" id="btnGoHome" aria-label="Entrar no aplicativo Radar Saúde">
+    <!-- Botão central que redireciona para 10.html -->
+    <a href="10.html" class="btn-start" aria-label="Entrar no aplicativo Radar Saúde">
       Começar
-    </button>
+    </a>
 
     <p class="accessibility-note">
-      Recursos de acessibilidade disponíveis • Prioridade para PcD
+      ♿ Recursos de acessibilidade • Prioridade para PcD
     </p>
   </div>
-
-  <script>
-    // Simulação da navegação para a tela inicial do app
-    document.getElementById('btnGoHome').addEventListener('click', function() {
-      // Em um app real, aqui seria a navegação para a tela principal
-      // Exemplo com React Navigation: navigation.navigate('Home')
-      alert('🚀 Navegando para a tela inicial do Radar Saúde!\n(No app real, você iria para o mapa com hospitais próximos)');
-      // window.location.href = 'home.html'; // se fosse web
-    });
-  </script>
 </body>
 </html>

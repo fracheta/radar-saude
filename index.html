@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Radar Saúde - Bem-vindo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(145deg, #e0f2f1 0%, #ffffff 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .welcome-screen {
+      width: 100%;
+      max-width: 400px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px);
+      border-radius: 2.5rem;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      text-align: center;
+      animation: fadeSlideUp 0.6s ease-out;
+    }
+
+    .logo-icon {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(135deg, #0d9488, #0f766e);
+      border-radius: 28px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 20px rgba(13,148,136,0.3);
+    }
+
+    .logo-icon svg {
+      width: 52px;
+      height: 52px;
+      fill: white;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: #334155;
+      margin-bottom: 2.2rem;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .highlight {
+      color: #0d9488;
+      font-weight: 600;
+    }
+
+    .features {
+      text-align: left;
+      margin: 0 auto 2.2rem;
+      background: #f0fdfa;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      font-size: 0.95rem;
+      color: #115e59;
+      display: inline-block;
+    }
+
+    .features p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .features p:last-child {
+      margin-bottom: 0;
+    }
+
+    .check-icon {
+      color: #0d9488;
+      font-weight: bold;
+    }
+
+    .btn-start {
+      background: #0f766e;
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 3rem;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 18px rgba(15,118,110,0.3);
+      letter-spacing: 0.3px;
+      margin-top: 0.8rem;
+    }
+
+    .btn-start:hover {
+      background: #0d9488;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 22px rgba(15,118,110,0.4);
+    }
+
+    .btn-start:active {
+      transform: translateY(0);
+      box-shadow: 0 6px 12px rgba(15,118,110,0.25);
+    }
+
+    .btn-start:focus-visible {
+      outline: 3px solid #5eead4;
+      outline-offset: 3px;
+    }
+
+    .accessibility-note {
+      font-size: 0.7rem;
+      color: #64748b;
+      margin-top: 1.2rem;
+    }
+
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsivo para telas muito pequenas */
+    @media (max-width: 380px) {
+      .welcome-screen {
+        padding: 2rem 1.5rem;
+      }
+      h1 {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-screen">
+    <!-- Ícone do Radar Saúde -->
+    <div class="logo-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+      </svg>
+    </div>
+
+    <h1>Radar Saúde</h1>
+    <p class="tagline">
+      Encontre o atendimento mais próximo e<br>
+      <span class="highlight">evite filas em emergências.</span>
+    </p>
+
+    <!-- Pequeno resumo dos diferenciais -->
+    <div class="features">
+      <p><span class="check-icon">✓</span> Localização em tempo real</p>
+      <p><span class="check-icon">✓</span> Tempo de espera estimado</p>
+      <p><span class="check-icon">✓</span> Orientação para emergências</p>
+    </div>
+
+    <!-- Botão central que leva para o início do app -->
+    <button class="btn-start" id="btnGoHome" aria-label="Entrar no aplicativo Radar Saúde">
+      Começar
+    </button>
+
+    <p class="accessibility-note">
+      Recursos de acessibilidade disponíveis • Prioridade para PcD
+    </p>
+  </div>
+
+  <script>
+    // Simulação da navegação para a tela inicial do app
+    document.getElementById('btnGoHome').addEventListener('click', function() {
+      // Em um app real, aqui seria a navegação para a tela principal
+      // Exemplo com React Navigation: navigation.navigate('Home')
+      alert('🚀 Navegando para a tela inicial do Radar Saúde!\n(No app real, você iria para o mapa com hospitais próximos)');
+      // window.location.href = 'home.html'; // se fosse web
+    });
+  </script>
+</body>
+</html>

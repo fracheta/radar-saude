@@ -2,8 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Radar Saúde - Bem-vindo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Radar Saúde | Bem-vindo</title>
+  <!-- Fonte profissional Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,217 +16,324 @@
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
-      /* Imagem de fundo (substitua pela URL desejada se quiser) */
-      background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1470&q=80');
+      background-color: #0c4a6e; /* fallback */
+      background-image: url('https://images.unsplash.com/photo-1581093458791-9b3c1e3c2b9b?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
-      background-position: center;
+      background-position: center 30%;
       background-repeat: no-repeat;
       position: relative;
+      padding: 1.2rem;
+      margin: 0;
     }
 
-    /* Camada azul escura translúcida para melhorar a leitura e manter o tom azul */
+    /* Camada profissional de overlay com gradiente azul marinho + blur */
     body::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(30, 64, 175, 0.75) 0%, rgba(37, 99, 235, 0.65) 100%);
-      backdrop-filter: blur(2px);
+      inset: 0;
+      background: linear-gradient(135deg, rgba(2, 24, 54, 0.78) 0%, rgba(3, 64, 120, 0.65) 60%, rgba(2, 50, 90, 0.7) 100%);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
       z-index: 0;
     }
 
-    .welcome-screen {
+    /* Partículas sutis (efeito decorativo) */
+    .particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      animation: float 18s infinite ease-in-out;
+    }
+    .particle:nth-child(1) { width: 200px; height: 200px; top: -40px; left: -40px; }
+    .particle:nth-child(2) { width: 140px; height: 140px; bottom: 10%; right: -30px; animation-delay: -6s; }
+    .particle:nth-child(3) { width: 100px; height: 100px; top: 40%; left: 5%; animation-delay: -11s; }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -25px) scale(1.05); }
+      50% { transform: translate(-15px, 20px) scale(0.95); }
+      75% { transform: translate(20px, 10px) scale(1.02); }
+    }
+
+    /* Container principal estilo vidro premium */
+    .welcome-card {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 420px;
+      max-width: 430px;
       background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(20px);
-      border-radius: 2.8rem;
-      padding: 2.8rem 2rem;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-radius: 3.2rem;
+      padding: 2.8rem 2.2rem 2.4rem;
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
       text-align: center;
-      animation: fadeSlideUp 0.7s ease-out;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      animation: cardRise 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.45);
     }
 
-    .logo-icon {
-      width: 110px;
-      height: 110px;
-      background: linear-gradient(145deg, #1e3a8a, #1d4ed8);
-      border-radius: 30px;
-      margin: 0 auto 1.8rem;
+    @keyframes cardRise {
+      0% { opacity: 0; transform: translateY(45px) scale(0.96); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Logo animado */
+    .logo-wrapper {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 2rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 12px 25px rgba(29, 78, 216, 0.4);
+    }
+    .logo-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 34px;
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      filter: blur(18px);
+      opacity: 0.45;
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+    .logo-icon {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #1e3a8a 0%, #2563eb 100%);
+      border-radius: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 28px rgba(30, 64, 175, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.25);
       transition: transform 0.3s ease;
     }
-
     .logo-icon:hover {
-      transform: scale(1.03);
+      transform: scale(1.04);
     }
-
     .logo-icon svg {
-      width: 58px;
-      height: 58px;
-      fill: white;
+      width: 62px;
+      height: 62px;
+      fill: #ffffff;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
     }
 
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.35; transform: scale(0.95); }
+      50% { opacity: 0.7; transform: scale(1.08); }
+    }
+
+    /* Tipografia */
     h1 {
-      font-size: 2.4rem;
+      font-size: 2.6rem;
       font-weight: 700;
+      letter-spacing: -0.6px;
       color: #0f172a;
-      margin-bottom: 0.4rem;
-      letter-spacing: -0.5px;
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
     }
-
-    .tagline {
-      font-size: 1.15rem;
-      color: #1e293b;
-      margin-bottom: 2.2rem;
-      line-height: 1.6;
-      font-weight: 400;
-    }
-
-    .highlight {
+    .brand-accent {
       color: #1d4ed8;
-      font-weight: 700;
+    }
+    .tagline {
+      font-size: 1.1rem;
+      color: #334155;
+      margin-bottom: 2.2rem;
+      font-weight: 450;
+      line-height: 1.6;
+    }
+    .tagline strong {
+      color: #1e3a8a;
+      font-weight: 600;
     }
 
-    .features {
-      text-align: left;
-      margin: 0 auto 2.5rem;
-      background: rgba(219, 234, 254, 0.8);
-      backdrop-filter: blur(5px);
-      border-radius: 1.8rem;
-      padding: 1.2rem 1.6rem;
-      font-size: 0.98rem;
-      color: #1e3a8a;
-      display: inline-block;
+    /* Features com ícones customizados */
+    .features-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2.5rem;
+      background: rgba(219, 234, 254, 0.55);
+      backdrop-filter: blur(8px);
+      border-radius: 2rem;
+      padding: 1.4rem 1.6rem;
       border: 1px solid rgba(59, 130, 246, 0.2);
     }
-
-    .features p {
-      margin-bottom: 0.7rem;
+    .feature-item {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.75rem;
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: #1e293b;
     }
-
-    .features p:last-child {
-      margin-bottom: 0;
-    }
-
-    .check-icon {
+    .feature-icon {
+      width: 22px;
+      height: 22px;
       color: #2563eb;
-      font-weight: bold;
-      font-size: 1.2rem;
+      flex-shrink: 0;
     }
 
-    /* Botão central que leva para 10.html */
+    /* Botão principal de alto impacto */
     .btn-start {
-      display: inline-block;
-      background: #1e40af;
-      color: white;
-      text-decoration: none;
-      padding: 1.1rem 2.5rem;
-      font-size: 1.25rem;
-      font-weight: 600;
-      border-radius: 3rem;
-      width: 100%;
-      transition: all 0.25s ease;
-      box-shadow: 0 10px 25px rgba(30, 64, 175, 0.45);
-      letter-spacing: 0.5px;
-      margin-top: 0.6rem;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-start:hover {
-      background: #2563eb;
-      transform: translateY(-3px);
-      box-shadow: 0 18px 30px rgba(37, 99, 235, 0.5);
-    }
-
-    .btn-start:active {
-      transform: translateY(0);
-      box-shadow: 0 8px 18px rgba(30, 64, 175, 0.4);
-    }
-
-    .btn-start:focus-visible {
-      outline: 3px solid #93c5fd;
-      outline-offset: 3px;
-    }
-
-    .accessibility-note {
-      font-size: 0.75rem;
-      color: #475569;
-      margin-top: 1.4rem;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.3rem;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 80%);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.3rem;
+      padding: 1rem 2.8rem;
+      width: 100%;
+      border-radius: 3rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(30, 64, 175, 0.55), 0 4px 10px rgba(0,0,0,0.1), inset 0 1px 1px rgba(255,255,255,0.3);
+      transition: all 0.28s cubic-bezier(0.2, 0.9, 0.4, 1);
+      letter-spacing: 0.3px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 0.2rem;
+    }
+    .btn-start::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.25) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      transform: rotate(25deg);
+    }
+    .btn-start:hover {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+      transform: translateY(-3px);
+      box-shadow: 0 22px 38px rgba(37, 99, 235, 0.6), 0 6px 14px rgba(0,0,0,0.2);
+    }
+    .btn-start:hover::after {
+      opacity: 1;
+    }
+    .btn-start:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 20px rgba(30,64,175,0.5);
+      transition: 0.1s;
+    }
+    .btn-start:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 4px;
     }
 
-    @keyframes fadeSlideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* Indicador de acessibilidade */
+    .a11y-badge {
+      margin-top: 1.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(4px);
+      padding: 0.45rem 1.2rem;
+      border-radius: 2rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #1e3a8a;
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(147, 197, 253, 0.6);
     }
 
     @media (max-width: 380px) {
-      .welcome-screen {
-        padding: 2.2rem 1.6rem;
+      .welcome-card {
+        padding: 2.2rem 1.5rem;
       }
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
+      }
+    }
+
+    /* Suporte a preferências de movimento reduzido */
+    @media (prefers-reduced-motion: reduce) {
+      .welcome-card,
+      .particle,
+      .logo-glow {
+        animation: none;
       }
     }
   </style>
 </head>
 <body>
-  <div class="welcome-screen">
-    <!-- Ícone azul -->
-    <div class="logo-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-      </svg>
+  <!-- Partículas decorativas de fundo -->
+  <div class="particles" aria-hidden="true">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <main class="welcome-card">
+    <!-- Logo Radar Saúde -->
+    <div class="logo-wrapper">
+      <div class="logo-glow" aria-hidden="true"></div>
+      <div class="logo-icon">
+        <!-- Ícone radar + cruz de saúde personalizado -->
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="22" fill="none" stroke="white" stroke-width="3" stroke-dasharray="8 6" opacity="0.9"/>
+          <circle cx="24" cy="24" r="12" fill="none" stroke="white" stroke-width="2.5" opacity="0.7"/>
+          <path d="M24 4 L24 14 M24 34 L24 44 M4 24 L14 24 M34 24 L44 24" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+          <circle cx="24" cy="24" r="4" fill="white"/>
+          <!-- Cruz médica centralizada -->
+          <rect x="22" y="16" width="4" height="16" rx="1.5" fill="white" />
+          <rect x="16" y="22" width="16" height="4" rx="1.5" fill="white" />
+        </svg>
+      </div>
     </div>
 
-    <h1>Radar Saúde</h1>
+    <h1>Radar <span class="brand-accent">Saúde</span></h1>
     <p class="tagline">
-      Encontre o atendimento mais próximo e<br>
-      <span class="highlight">evite filas em emergências.</span>
+      Encontre o atendimento mais próximo e <strong>reduza o tempo de espera</strong> em emergências.
     </p>
 
-    <div class="features">
-      <p><span class="check-icon">✓</span> Localização em tempo real</p>
-      <p><span class="check-icon">✓</span> Tempo de espera estimado</p>
-      <p><span class="check-icon">✓</span> Orientação para emergências</p>
+    <!-- Funcionalidades com ícones -->
+    <div class="features-grid">
+      <div class="feature-item">
+        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+        <span>Localização precisa em tempo real</span>
+      </div>
+      <div class="feature-item">
+        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+        <span>Tempo de fila estimado</span>
+      </div>
+      <div class="feature-item">
+        <svg class="feature-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/></svg>
+        <span>Orientação inteligente para emergências</span>
+      </div>
     </div>
 
-    <!-- Botão central que redireciona para 10.html -->
-    <a href="10.html" class="btn-start" aria-label="Entrar no aplicativo Radar Saúde">
-      Começar
+    <!-- Botão central de ação -->
+    <a href="10.html" class="btn-start" aria-label="Iniciar Radar Saúde e encontrar atendimento">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      Começar agora
     </a>
 
-    <p class="accessibility-note">
-      ♿ Recursos de acessibilidade • Prioridade para PcD
-    </p>
-  </div>
+    <!-- Selo de acessibilidade -->
+    <div class="a11y-badge">
+      <span aria-hidden="true">♿</span> Acessível • Prioridade PcD
+    </div>
+  </main>
 </body>
 </html>
